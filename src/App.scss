@@ -12,10 +12,18 @@ body {
 }
 
 .container {
-  margin: 0 40px;
+  margin: 0 40px 80px;
 }
 
 a {
   text-decoration: none;
   color: $font-primary;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
