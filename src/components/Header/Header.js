@@ -37,7 +37,6 @@ function Header() {
           </button>
         </form>
       </div>
-      <div></div>
     </div>
   );
 }

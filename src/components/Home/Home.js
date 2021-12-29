@@ -1,26 +1,18 @@
-import React, { useEffect } from "react";
-import MovieListing from "../MovieListing/MovieListing";
-import {
-  fetchAsyncMovies,
-  fetchAsyncShows,
-} from "../../features/movies/movieSlice";
-import { useDispatch } from "react-redux";
+import React from "react";
+import "./Home.scss";
 
-function Home() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const movieTitle = "Harry";
-    const showTitle = "Friends";
-    dispatch(fetchAsyncMovies(movieTitle));
-    dispatch(fetchAsyncShows(showTitle));
-  }, [dispatch]);
-
+const Home = () => {
   return (
-    <div>
-      <MovieListing />
+    <div className="home-container">
+      <h1>
+        Welcome to <br /> The Movie DB
+      </h1>
+      <h2>
+        The only spot you need to check all
+        <br /> Your favourite TV Shows and Movies.
+      </h2>
     </div>
   );
-}
+};
 
 export default Home;
