@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   fetchAsyncMovies,
@@ -10,12 +10,14 @@ import {
 function Header() {
   const [searchKey, setSearchKey] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const searchHandler = e => {
     e.preventDefault();
     if (searchKey === "") return alert("Please enter text in search");
     dispatch(fetchAsyncMovies(searchKey));
     dispatch(fetchAsyncShows(searchKey));
+    navigate("/search");
     setSearchKey("");
   };
 
