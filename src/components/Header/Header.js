@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
+  removeSearchedItems,
 } from "../../features/movies/movieSlice";
 
 function Header() {
@@ -17,6 +18,7 @@ function Header() {
     if (searchKey === "") return alert("Please enter text in search");
     dispatch(fetchAsyncMovies(searchKey));
     dispatch(fetchAsyncShows(searchKey));
+    dispatch(removeSearchedItems());
     navigate("/search");
     setSearchKey("");
   };
