@@ -6,7 +6,7 @@ import MovieDetail from "./components/MovieDetail/MovieDetail";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Search from "./components/Search/Search";
+import MovieListing from "./components/MovieListing/MovieListing";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movie/:imdbID" element={<MovieDetail />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/search" element={<MovieListing />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
