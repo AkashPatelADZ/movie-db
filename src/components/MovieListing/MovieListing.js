@@ -36,13 +36,29 @@ function MovieListing() {
       <div className="movie-list">
         <h2>Movies</h2>
         <div className="movie-container">
-          <Slider {...Settings}>{renderMovies}</Slider>
+          {renderMovies instanceof Array ? (
+            Object.keys(renderMovies).length === 0 ? (
+              <p className="secondary-color">No Movies found</p>
+            ) : (
+              <Slider {...Settings}>{renderMovies}</Slider>
+            )
+          ) : (
+            <p className="secondary-text">Loading...</p>
+          )}
         </div>
       </div>
       <div className="show-list">
         <h2>Shows</h2>
         <div className="show-container">
-          <Slider {...Settings}>{renderShows}</Slider>
+          {renderShows instanceof Array ? (
+            Object.keys(renderShows).length === 0 ? (
+              <p className="secondary-text">No shows found</p>
+            ) : (
+              <Slider {...Settings}>{renderShows}</Slider>
+            )
+          ) : (
+            <p className="secondary-text">Loading...</p>
+          )}
         </div>
       </div>
     </div>
