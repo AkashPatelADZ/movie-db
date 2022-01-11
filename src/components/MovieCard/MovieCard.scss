@@ -1,5 +1,10 @@
 @import "../../common/colors.scss";
 
+.slick-track {
+  height: 35rem;
+  top: 30px;
+}
+
 .card-item {
   background-color: $secondary-color;
   cursor: pointer;
@@ -7,9 +12,13 @@
   min-height: 450px;
   height: 100%;
   margin: 10px;
+  border: 2px solid white;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.1);
+    border-radius: 0;
+    border-radius: 20px;
   }
 }
 
