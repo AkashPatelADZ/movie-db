@@ -1,0 +1,36 @@
+.page404 {
+  img {
+    width: 100%;
+    display: block;
+    margin: 10vh auto 0 auto;
+  }
+
+  a {
+    position: absolute;
+    bottom: 82px;
+    right: 4px;
+    color: #000;
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    img {
+      width: 60%;
+      margin-top: 8vh;
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    img {
+      margin: 0 auto;
+      height: 40vh;
+      width: auto;
+    }
+
+    @media screen and (min-height: 420px) {
+      img {
+        margin-top: 10vh;
+      }
+    }
+  }
+}
