@@ -10,26 +10,19 @@ function MovieListing() {
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
 
-  let renderMovies = "";
-  let renderShows = "";
+  let renderMovies =
+    movies.Response === "True"
+      ? movies.Search.filter(movie => movie.Poster !== "N/A").map(
+          (movie, index) => <MovieCard key={index} data={movie} />
+        )
+      : "";
 
-  renderMovies =
-    movies.Response === "True" ? (
-      movies.Search.filter(movie => movie.Poster !== "N/A").map(
-        (movie, index) => <MovieCard key={index} data={movie} />
-      )
-    ) : (
-      <h3>{movies.Error}</h3>
-    );
-
-  renderShows =
-    shows.Response === "True" ? (
-      shows.Search.filter(show => show.Poster !== "N/A").map((show, index) => (
-        <MovieCard key={index} data={show} />
-      ))
-    ) : (
-      <h3>{shows.Error}</h3>
-    );
+  let renderShows =
+    shows.Response === "True"
+      ? shows.Search.filter(show => show.Poster !== "N/A").map(
+          (show, index) => <MovieCard key={index} data={show} />
+        )
+      : "";
 
   return (
     <div className="movie-wrapper">
@@ -38,10 +31,12 @@ function MovieListing() {
         <div className="movie-container">
           {renderMovies instanceof Array ? (
             Object.keys(renderMovies).length === 0 ? (
-              <p className="secondary-color">No Movies found</p>
+              <p className="secondary-text">No Movies found</p>
             ) : (
               <Slider {...Settings}>{renderMovies}</Slider>
             )
+          ) : movies.Error ? (
+            <p className="secondary-text">{movies.Error}</p>
           ) : (
             <p className="secondary-text">Loading...</p>
           )}
@@ -56,6 +51,8 @@ function MovieListing() {
             ) : (
               <Slider {...Settings}>{renderShows}</Slider>
             )
+          ) : shows.Error ? (
+            <p className="secondary-text">{shows.Error}</p>
           ) : (
             <p className="secondary-text">Loading...</p>
           )}
