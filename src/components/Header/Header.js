@@ -19,14 +19,14 @@ function Header() {
     dispatch(fetchAsyncMovies(searchKey));
     dispatch(fetchAsyncShows(searchKey));
     dispatch(removeSearchedItems());
-    navigate("/search");
+    navigate("/movie-db/search");
     setSearchKey("");
   };
 
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/">The Movie DB</Link>
+        <Link to="/movie-db/">The Movie DB</Link>
       </div>
       <div className="search-bar">
         <form onSubmit={searchHandler}>

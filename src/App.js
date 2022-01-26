@@ -15,10 +15,10 @@ function App() {
         <Header />
         <div className="container">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/movie/:imdbID" element={<MovieDetail />} />
-            <Route path="/search" element={<MovieListing />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="/movie-db/" element={<Home />} />
+            <Route path="/movie-db/movie/:imdbID" element={<MovieDetail />} />
+            <Route path="/movie-db/search" element={<MovieListing />} />
+            <Route path="/movie-db/*" element={<PageNotFound />} />
           </Routes>
         </div>
         <Footer />
