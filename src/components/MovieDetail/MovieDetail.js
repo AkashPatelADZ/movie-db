@@ -20,6 +20,16 @@ function MovieDetail() {
     };
   }, [dispatch, imdbID]);
 
+  const calcVotesSuffix = votes => {
+    if (votes.length > 8)
+      return votes.substring(0, votes.indexOf(",")).concat("M");
+
+    if (votes.length > 4)
+      return votes.substring(0, votes.indexOf(",")).concat("K");
+
+    return votes;
+  };
+
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (
@@ -28,22 +38,39 @@ function MovieDetail() {
         <>
           <div className="section-left">
             <div className="movie-title">{data.Title}</div>
+
             <div className="movie-rating">
-              <span>
-                IMDb Rating <i className="fa fa-star" /> : {data.imdbRating}
-              </span>
-              <span>
-                IMDb Votes <i className="fa fa-thumbs-up" /> : {data.imdbVotes}
-              </span>
-              <span>
-                Runtime <i className="fa fa-film" /> : {data.Runtime}
-              </span>
-              <span>
-                Year <i className="fa fa-calendar" /> : {data.Year}
-              </span>
+              <pre>
+                <i className="fa fa-star"></i> {data.imdbRating}
+              </pre>
+              <pre>
+                <i className="fa fa-thumbs-up"></i>{" "}
+                {calcVotesSuffix(data.imdbVotes)}
+              </pre>
+              <pre>
+                <i className="fa fa-film"></i> {data.Runtime}
+              </pre>
+              <pre>
+                <i className="fa fa-calendar"></i> {data.Year}
+              </pre>
             </div>
+
             <div className="movie-plot">{data.Plot}</div>
+
             <div className="movie-info">
+              <span>Director</span>
+              <span className="movie-info-data">{data.Director}</span>
+              <span>Actors</span>
+              <span className="movie-info-data">{data.Actors}</span>
+              <span>Genres</span>
+              <span className="movie-info-data">{data.Genre}</span>
+              <span>Languages</span>
+              <span className="movie-info-data">{data.Language}</span>
+              <span>Awards</span>
+              <span className="movie-info-data">{data.Awards}</span>
+            </div>
+
+            {/* <div className="movie-info">
               <div>
                 <span>Director</span>
                 <span>{data.Director}</span>
@@ -64,7 +91,7 @@ function MovieDetail() {
                 <span>Awards</span>
                 <span>{data.Awards}</span>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="section-right">
             <img src={data.Poster} alt={data.Title} />

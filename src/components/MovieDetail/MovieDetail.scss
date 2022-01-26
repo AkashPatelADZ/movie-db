@@ -3,19 +3,22 @@
 .movie-section {
   display: flex;
   justify-content: space-evenly;
-  padding: 40px 0;
+  padding: 32px 0;
   color: $font-primary;
   font-weight: 400;
 }
 
 .movie-rating {
-  padding-left: 3px;
-  margin-top: 20px;
-  color: $font-secondary;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 
-  span {
-    margin-right: 20px;
+  width: 360px;
+  margin: 28px 0;
+
+  pre {
+    padding: 0 4px;
   }
 }
 
@@ -25,20 +28,20 @@
 }
 
 .movie-plot {
-  margin-top: 20px;
-  line-height: 1.8rem;
+  margin: 18px 0;
+  line-height: 1.6rem;
+  text-align: justify;
 }
 
-.movie-info > div span:first-child {
-  padding: 10px 0;
-  color: $font-primary;
-  font-weight: 600;
-  width: 100px;
-  display: inline-block;
-}
+.movie-info {
+  display: grid;
+  grid-template-columns: 90px auto;
+  gap: 12px;
+  margin-top: 32px;
 
-.movie-info > div span {
-  color: $font-secondary;
+  .movie-info-data {
+    color: $font-secondary;
+  }
 }
 
 .fa-star {
@@ -59,4 +62,29 @@
 
 .section-right {
   margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .movie-section {
+    flex-direction: column-reverse;
+  }
+
+  .section-right {
+    margin: 0 auto;
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .movie-title {
+    font-size: 24px;
+    text-align: center;
+    margin: 32px auto;
+  }
+
+  .movie-rating {
+    width: 100%;
+  }
 }
